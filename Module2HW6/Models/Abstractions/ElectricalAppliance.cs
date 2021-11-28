@@ -11,5 +11,6 @@
         public bool IsEnable { get; set; }
 
         public int Weight { get; set; }
+        public abstract ElectricalApplianceType ElectricalApplianceType { get; }
     }
 }

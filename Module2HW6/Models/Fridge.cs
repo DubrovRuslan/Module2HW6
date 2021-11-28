@@ -6,5 +6,7 @@ namespace Module2HW6.Models
     {
         public int NumberOfShelves { get; set; }
         public bool IsFreezerfreezer { get; set; }
+
+        public override ElectricalApplianceType ElectricalApplianceType => ElectricalApplianceType.Fridge;
     }
 }

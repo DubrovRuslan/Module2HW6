@@ -7,5 +7,7 @@ namespace Module2HW6.Models
         public int IsAqua { get; set; }
 
         public int ContainerVolume { get; set; }
+
+        public override ElectricalApplianceType ElectricalApplianceType => ElectricalApplianceType.Hoover;
     }
 }

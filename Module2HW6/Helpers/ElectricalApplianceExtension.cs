@@ -80,5 +80,16 @@ namespace Module2HW6.Helpers
 
             return result;
         }
+
+        public static ElectricalAppliance GetElectricalApplianceByType(this ElectricalAppliance electricalAppliance, ElectricalApplianceType electricalApplianceType)
+        {
+            ElectricalAppliance result = null;
+            if (electricalAppliance.ElectricalApplianceType == electricalApplianceType)
+            {
+                result = electricalAppliance;
+            }
+
+            return result;
+        }
     }
 }
