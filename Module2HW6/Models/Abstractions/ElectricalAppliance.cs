@@ -6,11 +6,7 @@
 
         public int Power { get; set; }
 
-        public string Company { get; set; }
-
         public bool IsEnable { get; set; }
-
-        public int Weight { get; set; }
         public abstract ElectricalApplianceType ElectricalApplianceType { get; }
     }
 }

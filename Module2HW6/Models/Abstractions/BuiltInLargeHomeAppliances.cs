@@ -3,9 +3,5 @@
     public abstract class BuiltInLargeHomeAppliances : LargeHomeAppliances
     {
         public bool PresenceOfFacade { get; set; }
-
-        public double RecessedNicheWidth { get; set; }
-
-        public double RecessedNicheHeight { get; set; }
     }
 }

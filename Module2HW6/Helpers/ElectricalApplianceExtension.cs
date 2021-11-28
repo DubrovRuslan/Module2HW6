@@ -48,43 +48,21 @@ namespace Module2HW6.Helpers
             return result;
         }
 
-        public static ElectricalAppliance GetElectricalApplianceByCompany(this ElectricalAppliance electricalAppliance, string company)
-        {
-            ElectricalAppliance result = null;
-            if (electricalAppliance.Company.Contains(company))
-            {
-                result = electricalAppliance;
-            }
-
-            return result;
-        }
-
-        public static ElectricalAppliance GetElectricalApplianceByWeight(this ElectricalAppliance electricalAppliance, int maxWeight, int minWeight)
-        {
-            ElectricalAppliance result = null;
-            if (electricalAppliance.Weight >= minWeight && electricalAppliance.Weight <= maxWeight)
-            {
-                result = electricalAppliance;
-            }
-
-            return result;
-        }
-
-        public static ElectricalAppliance GetElectricalApplianceByWeight(this ElectricalAppliance electricalAppliance, int maxWeight)
-        {
-            ElectricalAppliance result = null;
-            if (electricalAppliance.Weight <= maxWeight)
-            {
-                result = electricalAppliance;
-            }
-
-            return result;
-        }
-
         public static ElectricalAppliance GetElectricalApplianceByType(this ElectricalAppliance electricalAppliance, ElectricalApplianceType electricalApplianceType)
         {
             ElectricalAppliance result = null;
             if (electricalAppliance.ElectricalApplianceType == electricalApplianceType)
+            {
+                result = electricalAppliance;
+            }
+
+            return result;
+        }
+
+        public static ElectricalAppliance GetElectricalApplianceBySmart(this ElectricalAppliance electricalAppliance)
+        {
+            ElectricalAppliance result = null;
+            if (electricalAppliance is SmartElectricalAppliance)
             {
                 result = electricalAppliance;
             }

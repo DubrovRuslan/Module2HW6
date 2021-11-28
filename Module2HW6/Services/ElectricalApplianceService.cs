@@ -14,87 +14,195 @@ namespace Module2HW6.Services
             _electricalApplianceProvider = electricalApplianceProvider;
         }
 
-        public bool AddNewBuiltInFridge(BuiltInFridge builtInFridge)
+        public ElectricalAppliance[] GetAllElectricalAppliances()
         {
-            var allAppliances = _electricalApplianceProvider.GetAllAppliances();
-            return ArrayHelper.AddElementToArray(ref allAppliances, builtInFridge);
+            return _electricalApplianceProvider.GetAllAppliances();
         }
 
-        public bool AddNewBuiltInHob(BuiltInHob builtInHob)
+        public bool AddNewBuiltInFridge(string name, int power, double width, double height, double depth, bool presenceOfFacade, int shelvesCount)
         {
-            var allAppliances = _electricalApplianceProvider.GetAllAppliances();
-            return ArrayHelper.AddElementToArray(ref allAppliances, builtInHob);
+            var builtInFridge = new BuiltInFridge
+            {
+                Name = name, Power = power,
+                IsEnable = false,
+                Width = width,
+                Height = height,
+                Depth = depth,
+                PresenceOfFacade = presenceOfFacade,
+                ShelvesCount = shelvesCount
+            };
+            return _electricalApplianceProvider.AddNewElectricalAppliance(builtInFridge);
         }
 
-        public bool AddNewBuiltInOven(BuiltInOven builtInOven)
+        public bool AddNewBuiltInHob(string name, int power, double width, double height, double depth, bool presenceOfFacade, int burnersCount)
         {
-            var allAppliances = _electricalApplianceProvider.GetAllAppliances();
-            return ArrayHelper.AddElementToArray(ref allAppliances, builtInOven);
+            var builtInHob = new BuiltInHob
+            {
+                Name = name,
+                Power = power,
+                Width = width,
+                Height = height,
+                Depth = depth,
+                PresenceOfFacade = presenceOfFacade,
+                BurnersCount = burnersCount
+            };
+            return _electricalApplianceProvider.AddNewElectricalAppliance(builtInHob);
         }
 
-        public bool AddNewBuiltInWasher(BuiltInWasher builtInWasher)
+        public bool AddNewBuiltInOven(string name, int power, double width, double height, double depth, bool presenceOfFacade, bool isConvection)
         {
-            var allAppliances = _electricalApplianceProvider.GetAllAppliances();
-            return ArrayHelper.AddElementToArray(ref allAppliances, builtInWasher);
+            var builtInOven = new BuiltInOven
+            {
+                Name = name,
+                Power = power,
+                Width = width,
+                Height = height,
+                Depth = depth,
+                PresenceOfFacade = presenceOfFacade,
+                IsConvection = isConvection
+            };
+            return _electricalApplianceProvider.AddNewElectricalAppliance(builtInOven);
         }
 
-        public bool AddNewFridge(Fridge fridge)
+        public bool AddNewBuiltInWasher(string name, int power, double width, double height, double depth, bool presenceOfFacade, bool isConvection, int weightOfLaundry)
         {
-            var allAppliances = _electricalApplianceProvider.GetAllAppliances();
-            return ArrayHelper.AddElementToArray(ref allAppliances, fridge);
+            var builtInWasher = new BuiltInWasher
+            {
+                Name = name,
+                Power = power,
+                Width = width,
+                Height = height,
+                Depth = depth,
+                PresenceOfFacade = presenceOfFacade,
+                WeightOfLaundry = weightOfLaundry
+            };
+            return _electricalApplianceProvider.AddNewElectricalAppliance(builtInWasher);
         }
 
-        public bool AddNewHoover(Hoover hoover)
+        public bool AddNewFridge(string name, int power, double width, double height, double depth, bool isFreezerfreezer, int numberOfShelves)
         {
-            var allAppliances = _electricalApplianceProvider.GetAllAppliances();
-            return ArrayHelper.AddElementToArray(ref allAppliances, hoover);
+            var fridge = new Fridge
+            {
+                Name = name,
+                Power = power,
+                Width = width,
+                Height = height,
+                Depth = depth,
+                IsFreezerfreezer = isFreezerfreezer,
+                NumberOfShelves = numberOfShelves
+            };
+            return _electricalApplianceProvider.AddNewElectricalAppliance(fridge);
         }
 
-        public bool AddNewIron(Iron iron)
+        public bool AddNewHoover(string name, int power, int containerVolume, bool isAqua)
         {
-            var allAppliances = _electricalApplianceProvider.GetAllAppliances();
-            return ArrayHelper.AddElementToArray(ref allAppliances, iron);
+            var hoover = new Hoover
+            {
+                Name = name,
+                Power = power,
+                ContainerVolume = containerVolume,
+                IsAqua = isAqua
+            };
+            return _electricalApplianceProvider.AddNewElectricalAppliance(hoover);
         }
 
-        public bool AddNewKettle(Kettle kettle)
+        public bool AddNewIron(string name, int power, bool isSteamer)
         {
-            var allAppliances = _electricalApplianceProvider.GetAllAppliances();
-            return ArrayHelper.AddElementToArray(ref allAppliances, kettle);
+            var iron = new Iron
+            {
+                Name = name,
+                Power = power,
+                IsSteamer = isSteamer
+            };
+            return _electricalApplianceProvider.AddNewElectricalAppliance(iron);
         }
 
-        public bool AddNewSmartHoover(SmartHoover smartHoover)
+        public bool AddNewKettle(string name, int power, int volume)
         {
-            var allAppliances = _electricalApplianceProvider.GetAllAppliances();
-            return ArrayHelper.AddElementToArray(ref allAppliances, smartHoover);
+            var kettle = new Kettle
+            {
+                Name = name,
+                Power = power,
+                Volume = volume
+            };
+            return _electricalApplianceProvider.AddNewElectricalAppliance(kettle);
         }
 
-        public bool AddNewSmartKettle(SmartKettle smartKettle)
+        public bool AddNewSmartHoover(string name, int power, SmartConnectionType smartConnectionType, string operatingSystem, int containerVolume)
         {
-            var allAppliances = _electricalApplianceProvider.GetAllAppliances();
-            return ArrayHelper.AddElementToArray(ref allAppliances, smartKettle);
+            var smartHoover = new SmartHoover
+            {
+                Name = name,
+                Power = power,
+                ConnectionType = smartConnectionType,
+                OperatingSystem = operatingSystem,
+                ContainerVolume = containerVolume,
+            };
+            return _electricalApplianceProvider.AddNewElectricalAppliance(smartHoover);
         }
 
-        public bool AddNewSmartMulticooker(SmartMulticooker smartMulticooker)
+        public bool AddNewSmartKettle(string name, int power, SmartConnectionType smartConnectionType, string operatingSystem, int volume)
         {
-            var allAppliances = _electricalApplianceProvider.GetAllAppliances();
-            return ArrayHelper.AddElementToArray(ref allAppliances, smartMulticooker);
+            var smartKettle = new SmartKettle
+            {
+                Name = name,
+                Power = power,
+                ConnectionType = smartConnectionType,
+                OperatingSystem = operatingSystem,
+                Volume = volume
+            };
+            return _electricalApplianceProvider.AddNewElectricalAppliance(smartKettle);
         }
 
-        public bool AddNewStove(Stove stove)
+        public bool AddNewSmartMulticooker(string name, int power, SmartConnectionType smartConnectionType, string operatingSystem, int programsCount)
         {
-            var allAppliances = _electricalApplianceProvider.GetAllAppliances();
-            return ArrayHelper.AddElementToArray(ref allAppliances, stove);
+            var smartMulticooker = new SmartMulticooker
+            {
+                Name = name,
+                Power = power,
+                ConnectionType = smartConnectionType,
+                OperatingSystem = operatingSystem,
+                ProgramsCount = programsCount
+            };
+            return _electricalApplianceProvider.AddNewElectricalAppliance(smartMulticooker);
         }
 
-        public bool AddNewWasher(Washer washer)
+        public bool AddNewStove(string name, int power, double width, double height, double depth, int burnersCount)
         {
-            var allAppliances = _electricalApplianceProvider.GetAllAppliances();
-            return ArrayHelper.AddElementToArray(ref allAppliances, washer);
+            var stove = new Stove
+            {
+                Name = name,
+                Power = power,
+                Width = width,
+                Height = height,
+                Depth = depth,
+                BurnersCount = burnersCount
+            };
+            return _electricalApplianceProvider.AddNewElectricalAppliance(stove);
+        }
+
+        public bool AddNewWasher(string name, int power, double width, double height, double depth, int weightOfLaundry)
+        {
+            var washer = new Washer
+            {
+                Name = name,
+                Power = power,
+                Width = width,
+                Height = height,
+                Depth = depth,
+                WeightOfLaundry = weightOfLaundry
+            };
+            return _electricalApplianceProvider.AddNewElectricalAppliance(washer);
         }
 
         public ElectricalAppliance[] SearchApplianceByName(string name)
         {
             var allAppliances = _electricalApplianceProvider.GetAllAppliances();
+            if (allAppliances == null)
+            {
+                return null;
+            }
+
             ElectricalAppliance[] result = null;
             foreach (var item in allAppliances)
             {
@@ -107,6 +215,11 @@ namespace Module2HW6.Services
         public ElectricalAppliance[] SearchApplianceByPower(int maxPower, int minPower)
         {
             var allAppliances = _electricalApplianceProvider.GetAllAppliances();
+            if (allAppliances == null)
+            {
+                return null;
+            }
+
             ElectricalAppliance[] result = null;
             foreach (var item in allAppliances)
             {
@@ -119,6 +232,11 @@ namespace Module2HW6.Services
         public ElectricalAppliance[] SearchApplianceByPower(int maxPower)
         {
             var allAppliances = _electricalApplianceProvider.GetAllAppliances();
+            if (allAppliances == null)
+            {
+                return null;
+            }
+
             ElectricalAppliance[] result = null;
             foreach (var item in allAppliances)
             {
@@ -131,6 +249,11 @@ namespace Module2HW6.Services
         public ElectricalAppliance[] SearchApplianceByType(ElectricalApplianceType electricalApplianceType)
         {
             var allAppliances = _electricalApplianceProvider.GetAllAppliances();
+            if (allAppliances == null)
+            {
+                return null;
+            }
+
             ElectricalAppliance[] result = null;
             foreach (var item in allAppliances)
             {
@@ -140,25 +263,18 @@ namespace Module2HW6.Services
             return result;
         }
 
-        public ElectricalAppliance[] SearchApplianceByWeight(int maxWeight, int minWeight)
+        public ElectricalAppliance[] SearchApplianceBySmart()
         {
             var allAppliances = _electricalApplianceProvider.GetAllAppliances();
-            ElectricalAppliance[] result = null;
-            foreach (var item in allAppliances)
+            if (allAppliances == null)
             {
-                ArrayHelper.AddElementToArray(ref result, item.GetElectricalApplianceByWeight(maxWeight, minWeight));
+                return null;
             }
 
-            return result;
-        }
-
-        public ElectricalAppliance[] SearchApplianceByWeight(int maxWeight)
-        {
-            var allAppliances = _electricalApplianceProvider.GetAllAppliances();
             ElectricalAppliance[] result = null;
             foreach (var item in allAppliances)
             {
-                ArrayHelper.AddElementToArray(ref result, item.GetElectricalApplianceByWeight(maxWeight));
+                ArrayHelper.AddElementToArray(ref result, item.GetElectricalApplianceBySmart());
             }
 
             return result;
@@ -167,6 +283,11 @@ namespace Module2HW6.Services
         public ElectricalAppliance[] SearchApplianceIsEnable()
         {
             var allAppliances = _electricalApplianceProvider.GetAllAppliances();
+            if (allAppliances == null)
+            {
+                return null;
+            }
+
             ElectricalAppliance[] result = null;
             foreach (var item in allAppliances)
             {
@@ -179,13 +300,59 @@ namespace Module2HW6.Services
         public void SortAppliancesByName()
         {
             var allAppliances = _electricalApplianceProvider.GetAllAppliances();
+            if (allAppliances == null)
+            {
+                return;
+            }
+
             System.Array.Sort(allAppliances, new ElectricalApplianceNameComparer());
         }
 
         public void SortAppliancesByPower()
         {
             var allAppliances = _electricalApplianceProvider.GetAllAppliances();
+            if (allAppliances == null)
+            {
+                return;
+            }
+
             System.Array.Sort(allAppliances, new ElectricalAppliancePowerComparer());
+        }
+
+        public int? GetTotalPowerUsed()
+        {
+            var result = 0;
+            var allAppliances = _electricalApplianceProvider.GetAllAppliances();
+            if (allAppliances == null)
+            {
+                return null;
+            }
+
+            foreach (var item in allAppliances)
+            {
+                if (item.IsEnable)
+                {
+                    result += item.Power;
+                }
+            }
+
+            return result;
+        }
+
+        public void PowerOn(ElectricalAppliance[] electricalAppliancesToOn)
+        {
+            foreach (var item in electricalAppliancesToOn)
+            {
+                item.IsEnable = true;
+            }
+        }
+
+        public void PowerOf(ElectricalAppliance[] electricalAppliancesToOff)
+        {
+            foreach (var item in electricalAppliancesToOff)
+            {
+                item.IsEnable = false;
+            }
         }
     }
 }
